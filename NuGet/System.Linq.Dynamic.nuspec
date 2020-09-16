@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>AK.System.Linq.Dynamic</id>
-    <version>1.1.32.2</version>
+    <version>1.1.33.0</version>
     <title>Dynamic Linq Library</title>
     <authors>Aleh Karasik</authors>
     <owners>Aleh Karasik</owners>
@@ -12,17 +12,11 @@
     <repository type="git" url="https://github.com/meatGUY/System.Linq.Dynamic" />
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>
-      This is a fork of the System.Linq.Dynamic.Library project that was itself forked from the Microsoft System.Linq.Dynamic project.
-      The library allows you to construct dynamic linq queries using string expressions instead of C# expressions.
-      See more information on project site.
+      This is a fork of the System.Linq.Dynamic.Library project that was itself forked from the Microsoft System.Linq.Dynamic project. The library allows you to construct dynamic linq queries using string expressions instead of C# expressions. See more information on project site and project wiki.
     </description>
     <summary>Supports .NET Framework 3.5, 4.0+, Silverlight 5, .NET Core 2.0+</summary>
     <releaseNotes>
-      Added new strongly typed Select&lt;T&gt; method overload.
-      
-      Added binaries targeting .NET Core 2.0.
-      
-      Removed dependency on FluentAssertionNA package.
+      Please see Version History: https://github.com/meatGUY/System.Linq.Dynamic/wiki/Version-History for more details.
     </releaseNotes>
     <tags>dynamic linq c# entities</tags>
   </metadata>

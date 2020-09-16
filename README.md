@@ -15,6 +15,10 @@
 |---|---|
 | NuGet | [![Build status](https://img.shields.io/badge/nuget-1.1.32.2-blue.svg)](https://www.nuget.org/packages/AK.System.Linq.Dynamic/1.1.32.2) |
 
+## Version History
+
+You can project release notes on [wiki](https://github.com/meatGUY/System.Linq.Dynamic/wiki/Version-History).
+
 # About
 As far as I know the history is somewhat similar to this.
 

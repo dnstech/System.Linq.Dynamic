@@ -93,6 +93,28 @@ namespace System.Linq.Dynamic
 #endif
         }
 
+        private static void GenerateConstructor(TypeBuilder tb, FieldInfo[] fields)
+        {
+            ConstructorInfo objCtor = typeof(object).GetConstructor(Type.EmptyTypes);
+            ConstructorBuilder cb = tb.DefineConstructor(
+                MethodAttributes.Public, 
+                CallingConventions.Standard,
+                fields.Select(x => x.FieldType).ToArray());
+
+            ILGenerator gen = cb.GetILGenerator();
+            gen.Emit(OpCodes.Ldarg_0);
+            gen.Emit(OpCodes.Call, objCtor);
+            for (int i = 0; i < fields.Length; i++)
+            {
+                var f = fields[i];
+
+                gen.Emit(OpCodes.Ldarg_0);
+                gen.Emit(OpCodes.Ldarg, i + 1);
+                gen.Emit(OpCodes.Stfld, f);
+            }
+            gen.Emit(OpCodes.Ret);
+        }
+
         private static FieldInfo[] GenerateProperties(TypeBuilder tb, DynamicProperty[] properties)
         {
             FieldInfo[] fields = new FieldBuilder[properties.Length];
@@ -208,6 +230,7 @@ namespace System.Linq.Dynamic
                         TypeAttributes.Class | TypeAttributes.Public, 
                         typeof(DynamicClass));
                     FieldInfo[] fields = GenerateProperties(tb, signature.properties);
+                    GenerateConstructor(tb, fields);
                     GenerateEquals(tb, fields);
                     GenerateGetHashCode(tb, fields);
                     
